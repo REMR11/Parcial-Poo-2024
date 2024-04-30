@@ -1,8 +1,26 @@
 package com.parcial.poo.SistemaBancario;
 
+import java.util.Random;
+
 public class Cliente {
 	private String nombre;
 	private int numeroCuenta;
+	
+	/**
+	 * @param nombre
+	 * @param numeroCuenta
+	 */
+	public Cliente(String nombre) {
+		super();
+		this.nombre = nombre;
+		this.numeroCuenta = generarNumeroCuentaAleatorio();
+	}
+	
+	
+	public Cliente() {
+		super();
+		this.numeroCuenta = generarNumeroCuentaAleatorio();
+	}
 	/**
 	 * @return the nombre
 	 */
@@ -27,11 +45,10 @@ public class Cliente {
 	public void setNumeroCuenta(int numeroCuenta) {
 		this.numeroCuenta = numeroCuenta;
 	}
-	public Cliente(String nombre, int numeroCuenta) {
-		super();
-		this.nombre = nombre;
-		this.numeroCuenta = numeroCuenta;
-	}
+	private static int generarNumeroCuentaAleatorio() {
+        Random random = new Random();
+        return random.nextInt(1000000) + 1; // Genera un número entre 1 y 999999
+    }
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
